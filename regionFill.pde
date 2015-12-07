@@ -1035,7 +1035,24 @@ class Fill {
       //print( "TEST " + this.x + "\n" );
       Point tmpPoint;
       Stack points = new Stack();
+      
       points.push( new Point(this.x, this.y) );
+      /** 
+       * The original bug is removed. now it can handle checkered patter fill
+       * even though the pixel being clicked is just next to the boundary pixel.
+       * But now it arise new problem which is possible to be solved 
+       * by completing the following code. ADD TODO
+       *
+        if ( tmp.get( tmpPoint.x-1, tmpPoint.y ) == c0 && 
+             tmp.get( tmpPoint.x, tmpPoint.y-1 ) == c0 &&
+             tmp.get( tmpPoint.x+1, tmpPoint.y ) == c0 && 
+             tmp.get( tmpPoint.x, tmpPoint.y+1 ) == c0 ) {
+          points.push( new Point(this.x, this.y) );
+        } else if () {
+          
+        }
+       *
+       */
       
       while ( !points.empty() ) {
         tmpPoint = (Point)points.pop();
@@ -1052,30 +1069,38 @@ class Fill {
           //tmp.fill(tc);
           //tmp.rect( tmpPoint.x, tmpPoint.y, 1, 1 );
           if ( tmp.get( tmpPoint.x-1, tmpPoint.y ) == c0 && 
-               tmp.get( tmpPoint.x, tmpPoint.y-1 ) == c0 && 
+               tmp.get( tmpPoint.x, tmpPoint.y-1 ) == c0 ||
                tmp.get( tmpPoint.x+1, tmpPoint.y ) == c0 && 
                tmp.get( tmpPoint.x, tmpPoint.y+1 ) == c0 ) {
             if ( tmpPoint.x > 0 ) {
               //print( "TEST1 " + tmpPoint.x + "\n" );
-              if ( tmp.get( tmpPoint.x-1, tmpPoint.y-1 ) == c0 )
+              if ( tmp.get( tmpPoint.x-1, tmpPoint.y-1 ) == c0 &&
+                   tmp.get( tmpPoint.x-1, tmpPoint.y ) == c0 &&
+                   tmp.get( tmpPoint.x, tmpPoint.y-1 ) == c0 )
                 points.push( new Point(tmpPoint.x-1, tmpPoint.y-1) );
             }
             
             if ( tmpPoint.y > 0 ) {
               //print( "TEST2 " + tmpPoint.x + "\n" );
-              if ( tmp.get( tmpPoint.x+1, tmpPoint.y-1 ) == c0 )
+              if ( tmp.get( tmpPoint.x+1, tmpPoint.y-1 ) == c0 &&
+                   tmp.get( tmpPoint.x+1, tmpPoint.y ) == c0 &&
+                   tmp.get( tmpPoint.x, tmpPoint.y-1 ) == c0 )
                 points.push( new Point(tmpPoint.x+1, tmpPoint.y-1) );
             }
             
             if ( tmpPoint.x < tmp.width-1 ) {
               //print( "TEST3 " + tmpPoint.x + "\n" );
-              if ( tmp.get( tmpPoint.x+1, tmpPoint.y+1 ) == c0 )
+              if ( tmp.get( tmpPoint.x+1, tmpPoint.y+1 ) == c0 &&
+                   tmp.get( tmpPoint.x+1, tmpPoint.y ) == c0 &&
+                   tmp.get( tmpPoint.x, tmpPoint.y+1 ) == c0 )
                 points.push( new Point(tmpPoint.x+1, tmpPoint.y+1) );
             }
             
             if ( tmpPoint.y < tmp.height-1 ) {
               //print( "TEST4 " + tmpPoint.x + "\n" );
-              if ( tmp.get( tmpPoint.x-1, tmpPoint.y+1 ) == c0 )
+              if ( tmp.get( tmpPoint.x-1, tmpPoint.y+1 ) == c0 &&
+                   tmp.get( tmpPoint.x-1, tmpPoint.y ) == c0 &&
+                   tmp.get( tmpPoint.x, tmpPoint.y+1 ) == c0 )
                 points.push( new Point(tmpPoint.x-1, tmpPoint.y+1) );
             }
           }
