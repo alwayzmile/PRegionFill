@@ -9,7 +9,7 @@ Region fill algorithm (flood fill and boundary fill) implementation. There are 8
 * boundary fill scanline
 * boundary fill scanline with stack
 
-![alt text](https://github.com/alwayzmile/PRegionFill/blob/master/data/screenshot.png "Screenshot")
+![alt text](data/screenshot.png "Screenshot")
 
 ###Features
 This work originally comes from programming assignment for Computer Graphics and Animation subject.
