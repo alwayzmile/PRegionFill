@@ -11,9 +11,10 @@ Region fill algorithm (flood fill and boundary fill) implementation. There are 8
 
 ![alt text](https://github.com/alwayzmile/PRegionFill/blob/master/data/screenshot.png "Screenshot")
 
-##Features
+###Features
 This work originally comes from programming assignment for Computer Graphics and Animation subject.
 The following is the task which is given in the programming assignment which will also describe its main features.
+
 Create an application that allows the user to do region fills. The application should be able to do the following:
 * Draw a line/circle on the screen.
 * Change colour.
@@ -26,5 +27,9 @@ Create an application that allows the user to do region fills. The application s
 * Fill in with striped pattern.
 * Show the order of pixels being filled.
 
-##Tech
+###User Guide
+Here is old user guide which was created bundled in programming assignment's report:
+[PRegionFill/data/user_guide.pdf](https://github.com/alwayzmile/PRegionFill/blob/master/data/user_guide.pdf)
+
+###Tech
 * [Processing 2.2.1](https://processing.org/) - Right now doesn't run well in Processing 3.0
