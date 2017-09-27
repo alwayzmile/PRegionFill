@@ -139,11 +139,14 @@ void mouseReleased() {
     if ( undo.size() >= 20 ) {
       undo.remove(0);
       undo.add( createGraphics(tmp.width, tmp.height) );
+      undo.get(undo.size()-1).beginDraw();
       undo.get(undo.size()-1).image( tmp, 0, 0 );
  //   print( "Add undo\n" );
     } else {
       undo.add( createGraphics(tmp.width, tmp.height) );
+      undo.get(undo.size()-1).beginDraw();
       undo.get(undo.size()-1).image(tmp, 0, 0);
+
  //   print( "Add undo\n" );
     }
     
@@ -152,6 +155,7 @@ void mouseReleased() {
         unredoTmp = undo.get(undo.size()-2);
         unredoTmp.loadPixels();
         tmp = createGraphics(pg.width, pg.height);
+        tmp.beginDraw();
         tmp.loadPixels();
         arrayCopy( unredoTmp.pixels, tmp.pixels );
         tmp.updatePixels();

@@ -7,6 +7,7 @@ void doUndo() {
     unredoTmp = undo.get(undo.size()-1);
     unredoTmp.loadPixels();
     tmp = createGraphics(pg.width, pg.height);
+    tmp.beginDraw();
     tmp.loadPixels();
     arrayCopy( unredoTmp.pixels, tmp.pixels );
     tmp.updatePixels();
@@ -27,6 +28,7 @@ void doRedo() {
     
     unredoTmp.loadPixels();
     tmp = createGraphics(pg.width, pg.height);
+    tmp.beginDraw();
     tmp.loadPixels();
     arrayCopy( unredoTmp.pixels, tmp.pixels );
     tmp.updatePixels();

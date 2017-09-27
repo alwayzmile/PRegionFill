@@ -59,8 +59,7 @@ PFont font;  // for text in the application
 
 // run first, only once
 void setup() {
-  smooth();
-  frame.setTitle( "PRegionFill : Region Fill Implementation" );
+  surface.setTitle( "PRegionFill : Region Fill Implementation" );
   frameRate( 1000 );
   size( 800, 500 );
   
@@ -86,8 +85,9 @@ void setup() {
   pg.beginDraw();
   pg.noSmooth();
   restoreDrawing();
-  
+ 
   undo.add( createGraphics(pg.width, pg.height) );
+  undo.get(0).beginDraw();
   undo.get(0).background( 255, 0 );
 }
 

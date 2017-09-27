@@ -28,10 +28,12 @@ void openSavedCanvas( File input ) {
       if ( undo.size() >= 20 ) {
         undo.remove(0);
         undo.add( createGraphics(tmp.width, tmp.height) );
+        undo.get(undo.size()-1).beginDraw();
         undo.get(undo.size()-1).image( tmp, 0, 0 );
         //print( "Add undo\n" );
       } else {
         undo.add( createGraphics(tmp.width, tmp.height) );
+        undo.get(undo.size()-1).beginDraw();
         undo.get(undo.size()-1).image(tmp, 0, 0);
         //print( "Add undo\n" );
       }
